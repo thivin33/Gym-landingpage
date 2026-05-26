@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IRON PULSE FITNESS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0b0b0b;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,0.5);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-size:32px;
+      font-family:'Anton',sans-serif;
+      letter-spacing:2px;
+      color:#ff3c00;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#ff3c00;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:
+      linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+      url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h1{
+      font-size:80px;
+      line-height:1;
+      font-family:'Anton',sans-serif;
+      margin-bottom:20px;
+      letter-spacing:3px;
+    }
+
+    .hero h1 span{
+      color:#ff3c00;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#ccc;
+      line-height:1.8;
+      margin-bottom:35px;
+      max-width:600px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      background:#ff3c00;
+      color:white;
+      border-radius:6px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+      transform:translateY(-3px);
+    }
+
+    /* FEATURES */
+
+    .features{
+      padding:100px 0;
+      background:#111;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:50px;
+      font-family:'Anton',sans-serif;
+      letter-spacing:2px;
+    }
+
+    .section-title span{
+      color:#ff3c00;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .feature-card{
+      background:#1b1b1b;
+      padding:35px;
+      border-radius:15px;
+      transition:0.3s;
+      border:1px solid transparent;
+    }
+
+    .feature-card:hover{
+      transform:translateY(-10px);
+      border-color:#ff3c00;
+    }
+
+    .feature-card h3{
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .feature-card p{
+      color:#bdbdbd;
+      line-height:1.7;
+    }
+
+    /* PRICING */
+
+    .pricing{
+      padding:100px 0;
+      background:#0b0b0b;
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .price-card{
+      background:#161616;
+      padding:45px 35px;
+      border-radius:15px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .price-card:hover{
+      transform:scale(1.04);
+      border-color:#ff3c00;
+    }
+
+    .price-card h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .price{
+      font-size:55px;
+      font-weight:700;
+      color:#ff3c00;
+      margin:20px 0;
+    }
+
+    .price-card ul{
+      list-style:none;
+      margin-bottom:30px;
+    }
+
+    .price-card ul li{
+      margin:12px 0;
+      color:#ccc;
+    }
+
+    /* CTA */
+
+    .cta{
+      padding:120px 20px;
+      text-align:center;
+      background:
+      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .cta h2{
+      font-size:60px;
+      font-family:'Anton',sans-serif;
+      margin-bottom:20px;
+      line-height:1.1;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      color:#ddd;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:30px 0;
+      text-align:center;
+      background:#050505;
+      color:#888;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:55px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .section-title h2{
+        font-size:38px;
+      }
+
+      .cta h2{
+        font-size:42px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">IRON PULSE</div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Programs</a>
+        <a href="#">Pricing</a>
+        <a href="#">Trainers</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-content">
+
+      <h1>
+        BUILD YOUR <span>STRONGEST</span> BODY
+      </h1>
+
+      <p>
+        Stop making excuses. Start building strength, discipline, confidence, and a body that actually reflects your potential. Professional trainers, modern equipment, and real transformation.
+      </p>
+
+      <a href="#" class="btn">JOIN NOW</a>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>WHY <span>CHOOSE US</span></h2>
+      </div>
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <h3>Elite Trainers</h3>
+          <p>
+            Certified coaches focused on real progress, proper form, and long-term fitness results.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Modern Equipment</h3>
+          <p>
+            Premium machines, strength zones, cardio areas, and everything needed for serious training.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Custom Programs</h3>
+          <p>
+            Weight loss, muscle building, endurance, and transformation programs designed for your goals.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRICING -->
+
+  <section class="pricing">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>MEMBERSHIP <span>PLANS</span></h2>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <h3>Basic</h3>
+          <div class="price">$29</div>
+
+          <ul>
+            <li>Gym Access</li>
+            <li>Cardio Area</li>
+            <li>Locker Facility</li>
+          </ul>
+
+          <a href="#" class="btn">Get Started</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Pro</h3>
+          <div class="price">$59</div>
+
+          <ul>
+            <li>All Basic Features</li>
+            <li>Personal Trainer</li>
+            <li>Diet Guidance</li>
+          </ul>
+
+          <a href="#" class="btn">Get Started</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Elite</h3>
+          <div class="price">$99</div>
+
+          <ul>
+            <li>24/7 Access</li>
+            <li>Private Coaching</li>
+            <li>Premium Recovery Zone</li>
+          </ul>
+
+          <a href="#" class="btn">Get Started</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      NO SHORTCUTS.<br>
+      JUST RESULTS.
+    </h2>
+
+    <p>
+      Your body changes only when your standards change. Train harder, stay disciplined, and build the version of yourself most people never reach.
+    </p>
+
+    <a href="#" class="btn">START TODAY</a>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 Iron Pulse Fitness. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
